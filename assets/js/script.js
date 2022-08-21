@@ -17,13 +17,15 @@ var getRowColors = function () {
     });
 };
 
+var saveTask = function () {
+    $(".saveBtn").on("click", function () {
+        var taskText = $(this).siblings(".description").val();
+        var time = $(this).parent().attr("id");
 
-$(".saveBtn").on("click", function () {
-    var taskText = $(this).siblings(".description").val();
-    var time = $(this).parent().attr("id");
+        localStorage.setItem(time, taskText);
+    });
+};
 
-    localStorage.setItem(time, taskText);
-});
 
 $("#9 .description").val(localStorage.getItem("9"));
 $("#10 .description").val(localStorage.getItem("10"));
@@ -37,3 +39,4 @@ $("#17 .description").val(localStorage.getItem("17"));
 
 getCurrentDate();
 getRowColors();
+saveTask();
